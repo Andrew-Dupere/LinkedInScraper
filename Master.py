@@ -7,7 +7,7 @@ import pandas as pd
 
 
 skills = ['NoSQL','SQL','MySQL','Spark','PySpark','CSS','HTML','Bootstrap','Dash','Plotly',' R ',
-          'Tableau','Excel','GraphQL','Snowflake','ETL','Pytorch','PySpark','PyCharm','ETL','CRUD',
+          'Tableau','Excel','GraphQL','Snowflake','Pytorch','PySpark','PyCharm','ETL','CRUD',
           'Tensorflow','AWS','Flask','Django','API','REST','Java','JavaScript','C#','C++','Azure']
 
 
