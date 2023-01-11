@@ -5,13 +5,13 @@ from bs4 import BeautifulSoup
 from lxml import etree
 import pandas as pd
 
-
+#list of skills to be scraped from the job description, skills can easily be added or removed for personal preference. 
 skills = ['NoSQL','SQL','MySQL','Spark','PySpark','CSS','HTML','Bootstrap','Dash','Plotly',' R ',
           'Tableau','Excel','GraphQL','Snowflake','Pytorch','PySpark','PyCharm','ETL','CRUD',
           'Tensorflow','AWS','Flask','Django','API','REST','Java','JavaScript','C#','C++','Azure']
 
 
-#a range to sort the pagination on linkedin at the end of the url
+#a range to sort through pagination on linkedin at the end of the url
 page = range(0,975,25)
 
 #create an empty list to store jobID numbers
@@ -19,7 +19,8 @@ jobID = []
 
 for num in page:
   
-    #this is the url provided when "python" is searched as the only keyword with remote only roles filtered. 
+    #this is the url provided when "python" is searched as the only keyword with remote only roles filtered
+    #Any linkedin job search results will work in this program as long as '&start={num}' is added to the end of the url
     newurl = f'https://www.linkedin.com/jobs/search/?currentJobId=3423339110&f_WT=2&keywords=python&refresh=true&start={num}'
     
     #make the request from linkedin
@@ -37,7 +38,7 @@ for num in page:
         #append each job id number to the jobID list after stripping the "jobPosting:" text
         jobID.append(match.group().replace('jobPosting:',''))
         
-####################################################
+
 #create an empty string to store the job descriptions        
 bigsoup = ''
 
@@ -55,11 +56,11 @@ for num in jobID:
     #the bigsoup variable is one massive string containing every job description in the search results. 
     bigsoup += description        
 
-#######################################################
+
 #create an empty list to store the counts 
 counts = []
 
 for item in skills:
     counts.append(bigsoup.count(item))
     
-pd.Series(counts,skills)
+pd.Series(counts,skills).sort_values(ascending=False)
