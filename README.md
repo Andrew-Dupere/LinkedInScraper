@@ -1,6 +1,6 @@
 # LinkedInScraper
 
-The purpose for this program is to figure out which progamming languages, frameworks and libararies are in demand on Linkedin.
+The purpose for this program is to figure out which progamming languages, frameworks and libararies are in demand from employers on Linkedin.
 
 The program takes in a URL of a keyword search on the linkedin jobs page and pulls every job ID from the search results. 
 
