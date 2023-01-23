@@ -10,7 +10,7 @@ skills = ['NoSQL','SQL','MySQL','Spark','PySpark','CSS','HTML','Bootstrap','Dash
           'Tableau','Excel','GraphQL','Snowflake','Pytorch','PySpark','PyCharm','ETL','CRUD',
           'Tensorflow','AWS','Flask','Django','API','REST','Java','JavaScript','C#','C++','Azure']
 
-Keywords = 'Python, SQL'
+keywords = 'Python, SQL'
 
 
 
@@ -43,7 +43,7 @@ def scrape(keywords,skills):
 
         #creat an empty string to store all of the job descriptions
 
-    bigsoup = ''
+    bigSoup = ''
 
     for num in jobID:
         #for every jobID in the JobID list, go to the individual job listing page.
@@ -61,6 +61,6 @@ def scrape(keywords,skills):
         counts.append(bigsoup.count(item))
 
     #make a table of all of the skills with their respective counts    
-    dff = (pd.Series(counts,skills).sort_values(ascending=False))
+    df = (pd.Series(counts,skills).sort_values(ascending=False))
 
-    print(dff)
+    print(df)
